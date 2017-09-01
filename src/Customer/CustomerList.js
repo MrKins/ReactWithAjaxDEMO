@@ -36,9 +36,9 @@ class CustomerList extends React.Component{
 	}
 
 	getCustomerList() {
+		this.customers = [];
 		this.row = 0;
 		this.setState({customers4State: []});
-
 		let url = 'http://localhost:5120/Service.svc/rest/GetCustomer';
 
 		AjaxGet(url, function(data) {
@@ -63,7 +63,7 @@ class CustomerList extends React.Component{
 	}
 
 	setCustomerListState() {
-		//console.log(this.customers);
+		console.log(this.customers.length + "&" +  this.row);
 		if(this.row == this.customers.length - 1){
 			this.getCustomerList();
 		} else{
