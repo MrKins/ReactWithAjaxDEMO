@@ -7,16 +7,28 @@ import CustomerItem from './CustomerItem'
 
 class CustomerList extends React.Component{
 
+	customer = {
+		customerID: '',
+		customerName: '',
+		customerAddress: ''
+	};
+	customers = [];
+	row = 0;
+
 	constructor(props){
 		super(props);
 
 		this.state = {
-			customers: []
+			customers4State: []
 		};
 	}
 
 	componentDidMount() {
-		this.result4Interval = setInterval(() => this.getCustomerList(), 10000);
+
+		(this.getCustomerList());
+		//this.result4Interval = setInterval(() => this.getCustomerList(), 10000);
+
+		this.result4Interval = setInterval(() => this.setCustomerListState(), 5000);
 	}
 
 	componentWillUnmount() {
@@ -24,24 +36,26 @@ class CustomerList extends React.Component{
 	}
 
 	getCustomerList() {
-		this.setState({customers: []});
+		this.row = 0;
+		this.setState({customers4State: []});
 
 		let url = 'http://localhost:5120/Service.svc/rest/GetCustomer';
 
 		AjaxGet(url, function(data) {
-			for (var i = 0; i < data.length; i++){
 
-				var	customer= {
+			for (var i = 0; i < data.length; i++){
+				this.customer = {
 					customerID: '',
 					customerName: '',
 					customerAddress: ''
 				};
 
-				customer.customerID = data[i].customerID;
-				customer.customerName = data[i].customerName;
-				customer.customerAddress = data[i].customerAddress;
+				this.customer.customerID = data[i].customerID;
+				this.customer.customerName = data[i].customerName;
+				this.customer.customerAddress = data[i].customerAddress;
+				this.customers = this.customers.concat([this.customer]);
 
-				this.setState({customers: this.state.customers.concat([customer])});
+				//this.setState({customers4State: this.state.customers4State.concat([this.customer])});
 			}
 		}.bind(this));
 
@@ -49,7 +63,15 @@ class CustomerList extends React.Component{
 	}
 
 	setCustomerListState() {
+		//console.log(this.customers);
+		if(this.row == this.customers.length - 1){
+			this.getCustomerList();
+		} else{
+			//每次循环都拿cutomers中的第row个
+			this.setState({customers4State: this.state.customers4State.concat([this.customers[this.row]])});
 
+			this.row++;
+		}
 	}
 
 
@@ -64,7 +86,7 @@ class CustomerList extends React.Component{
 				</tr>
 				</thead>
 				<tbody>
-				{this.state.customers.map((customer) =>
+				{this.state.customers4State.map((customer) =>
 					<CustomerItem key={customer.customerID} customer={customer} />
 				)}
 				</tbody>
