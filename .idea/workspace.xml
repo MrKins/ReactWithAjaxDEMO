@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b2d59f8-b5b4-4744-9e56-282ffac61ea0" name="Default" comment="每一行每五秒自动添加更新，更新完毕后自动清空重新跑">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="9b2d59f8-b5b4-4744-9e56-282ffac61ea0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Customer/CustomerList.js" afterPath="$PROJECT_DIR$/src/Customer/CustomerList.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -344,12 +342,20 @@
       <workItem from="1503841007707" duration="63000" />
       <workItem from="1503841148193" duration="466000" />
       <workItem from="1503841666676" duration="14898000" />
-      <workItem from="1503929482476" duration="14838000" />
+      <workItem from="1503929482476" duration="14863000" />
     </task>
+    <task id="LOCAL-00001" summary="每一行每五秒自动添加更新，更新完毕后自动清空重新跑">
+      <created>1504259484273</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1504259484273</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32233000" />
+    <option name="totallyTimeSpent" value="32258000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
